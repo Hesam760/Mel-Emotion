@@ -1,82 +1,94 @@
-## Mel-Emotion : Audio Sentiment Classification with CNN
+# 🎵 Audio Sentiment Classification with CNN
 
-This repository contains an experiment in classifying audio sentiment (happy, sad, etc.) using extracted audio features and a custom 1D Convolutional Neural Network (CNN).
+This repository contains an experiment in classifying **audio sentiment** (happy, sad, etc.) using extracted audio features and a custom **1D Convolutional Neural Network (CNN)**.
 
-📂 Project Overview
+---
 
-Feature Extraction:
-Extracted features from audio files, including:
+# 📊 Dataset
 
-MFCC (Mel-Frequency Cepstral Coefficients)
+The model is trained using the [Persian-Speech-Dataset](https://huggingface.co/datasets/SeyedAli/Persian-Speech-Dataset) available on Hugging Face. This dataset contains Persian audio clips with corresponding transcriptions and emotion labels.  
 
-Chroma
+**Dataset details:**
 
-Zero Crossing Rate
+- `audio` 🎧: Path to the audio file  
+- `transcription` 📝: Text transcription of the audio  
+- `emotion` 😄😢😡😐: Emotion label (e.g., happy, sad, angry, neutral)  
 
-Spectral Rolloff
+*Note: The dataset is licensed under the MIT License.*
 
-Tonnetz (harmonic features)
+---
 
-Additional audio features
+# 🛠️ Project Overview
 
-Data Augmentation:
-Applied several augmentations to improve model generalization:
+- **Feature Extraction** 🔍:  
+  Extracted features from audio files, including:  
+  - **MFCC (Mel-Frequency Cepstral Coefficients)**  
+  - **Chroma**  
+  - **Zero Crossing Rate**  
+  - **Spectral Rolloff**  
+  - **Tonnetz (harmonic features)**  
+  - Additional audio features  
 
-Noise injection
+- **Data Augmentation** ✨:  
+  Applied several augmentations to improve model generalization:  
+  - Noise injection 🔊  
+  - Time shifting ⏩  
+  - Time stretching ⏱️  
+  - Pitch shifting 🎵  
 
-Time shifting
+- **Data Preparation** 📂:  
+  - Features are stored in a Pandas DataFrame  
+  - Split into training and testing sets  
 
-Time stretching
+- **Model** 🧠:  
+  - Custom **1D CNN architecture** trained on the feature vectors  
+  - **Validation Accuracy** ✅: ~85%  
+  - **Test Accuracy** 🧪: ~61%  
 
-Pitch shifting
+> ⚠️ Note: The gap between validation and test accuracy suggests potential overfitting and room for improvement.
 
-Data Preparation:
+---
 
-Extracted features are stored in a Pandas DataFrame
+# ⚙️ How It Works
 
-Split into training and testing sets
+1. Load the Persian-Speech-Dataset 📥  
+2. Extract features (MFCC, Chroma, Zero Crossing Rate, Spectral Rolloff, Tonnetz, etc.) 🎶  
+3. Apply data augmentation for more training samples ✨  
+4. Store features in a structured Pandas DataFrame 🗂️  
+5. Split data into train/test sets 🔀  
+6. Train a custom 1D CNN on the extracted features 🧠  
+7. Evaluate model performance on validation and test sets 📊  
 
-Model:
+---
 
-Custom 1D CNN architecture trained on the feature vectors
+# 📚 Libraries Used
 
-Achieved validation accuracy: ~85% and test accuracy: ~61%
+- **librosa** 🎧 – audio processing and feature extraction  
+- **matplotlib** 📈 – plotting and visualization  
+- **tensorflow** 🤖 – building and training CNN models  
+- **keras** 🛠️ – high-level API for CNN architecture  
+- **numpy** 🔢 – numerical operations  
+- **pandas** 🗃️ – data manipulation and storage  
+- **io** 💾 – input/output operations (built-in Python library)  
 
-Note: The gap between validation and test accuracy suggests potential overfitting and room for improvement.
+---
 
-⚙️ How It Works
+# 📓 Notebook
 
-Load audio dataset
+All steps are included in the Jupyter Notebook (`.ipynb`) provided in this repository.  
+Open the notebook to explore:  
+- Feature extraction 🔍  
+- Data augmentation ✨  
+- CNN training 🧠  
+- Model evaluation 📊  
 
-Extract features (MFCC, Chroma, Zero Crossing Rate, Spectral Rolloff, Tonnetz, etc.)
+---
 
-Apply data augmentation
+# 💻 Installation
 
-Store features in a structured DataFrame
+Install dependencies using pip:
 
-Split data into train/test sets
+```bash
+pip install librosa matplotlib tensorflow keras numpy pandas
+```
 
-Train a 1D CNN on the extracted features
-
-Evaluate model performance
-
-🧰 Libraries Used
-
-librosa – for audio processing and feature extraction
-
-matplotlib – for plotting and visualizations
-
-tensorflow – for building and training the CNN
-
-keras – high-level API for defining the CNN
-
-numpy – for numerical operations
-
-pandas – for data handling and DataFrame operations
-
-io – for input/output operations (built-in Python library)
-
-📓 Notebook
-
-All steps are contained in the Jupyter Notebook (.ipynb) included in this repository.
-Open the notebook to explore the workflow, feature extraction, model training, and results.
